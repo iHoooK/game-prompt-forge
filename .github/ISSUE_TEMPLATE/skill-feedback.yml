@@ -1,0 +1,43 @@
+name: Замечание по скиллу
+description: Новый жанр, исключение из правила, пробел или сбой в game-prompt-forge
+title: "[скилл] "
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо! Не указывайте личные данные, пути на компьютере и ключи. Идею игры можно описать обобщённо.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Тип
+      options:
+        - Новый жанр (нет рецепта)
+        - Исключение из правила
+        - Пробел (чего-то не хватило)
+        - Поправка (скилл сделал не так)
+        - Сбой (шаг невозможен, ссылка не открылась)
+        - Находка (хороший приём)
+    validations:
+      required: true
+  - type: input
+    id: file
+    attributes:
+      label: Файл скилла (если знаете)
+      placeholder: references/genre-recipes.md
+  - type: textarea
+    id: situation
+    attributes:
+      label: Ситуация
+      description: Что хотели сделать и что пошло не так (обобщённо).
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Что сделано в итоге
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Предложение
+      description: Что изменить в скилле. Для нового жанра можно вставить рецепт из ~/.game-prompt-forge/learned/.
